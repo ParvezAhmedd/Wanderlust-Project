@@ -5,8 +5,8 @@ const listing = <%- JSON.stringify(listing) %>;
 </script>
 <body>
     <div class="row mt-2">
-        <div class="col-8 offset-3">
-    <div class="card col-6 offset-2 show-card listing_card">
+        <div class="col-12 col-md-8 offset-md-3">
+    <div class="card col-6 offset-2 show-card listing-card">
         <h3><%= listing.title %></h3>
   <img src="<%= listing.image.url %>" class="card-img-top show_img" alt="listing_image">
   <div class="card-body ">
@@ -31,7 +31,7 @@ const listing = <%- JSON.stringify(listing) %>;
     <% } %>
 </div>
 </div>
-<div class="col-8 offset-3 mb-3">
+<div class="col-10 col-md-8 mx-auto mb-3">
     
     <% if(currUser) { %> 
         <hr>
@@ -64,12 +64,12 @@ const listing = <%- JSON.stringify(listing) %>;
 <%}%>
     
 <% if (listing.reviews.length > 0) { %> 
-    <div class="row">
+    <div class="row review-row">
         <p><b>All Review</b></p>
         <% for ( review of listing.reviews ) { %>
-        <div class="card col-5 ms-3 mb-3">
+        <div class="card col-12 col-md-5 mb-3 review-card">
             <div class="card-body">
-                <h5 class="card-title">@<%= review.author.username %></h5>
+                <h5 class="card-title review-username">@<%= review.author.username %></h5>
                 <p class="starability-result card-text" data-rating="<%= review.rating %>"></p>
                 <p class="card-text"><%= review.comment %></p>
                 <% if (currUser && currUser._id.equals(review.author._id)) { %>
@@ -82,7 +82,7 @@ const listing = <%- JSON.stringify(listing) %>;
         <% } %>
     </div> 
     <% } %>
-      <div class="col-8 mb-3">
+      <div class="col-12 col-lg-10 mx-auto mb-3">
         <h3>Where you'll be</h3>
         <div id="map"></div>
       </div>

@@ -3,7 +3,7 @@
     <br><br>
     <form method="post" action="/listings/<%= listing._id%>?_method=PUT" class=" needs-validation" novalidate enctype="multipart/form-data">
         <div class="row">
-            <div class="class = col-8 offset-2">
+            <div class="col-11 col-md-8 mx-auto">
                 <h3>Edit your listing</h3>
         <div class="mb-3">
             <label for="title" class="form-label">Title</label>
@@ -16,7 +16,7 @@
              <textarea name="listing[description]" class="form-control" required><%= listing.description %></textarea>
               <div class="invalid-feedback">Description should be valid!</div>
         </div>
-        <br>
+        
         <div class="mb-3 original-image">
             Original Listing Image
             <br>
@@ -33,9 +33,9 @@
             Trending
         </option>
 
-        <option value="Rooms" <%= listing.category === "Rooms" ? "selected" : "" %>>
-            Rooms
-        </option>
+        <option value="Room" <%= listing.category === "Room" ? "selected" : "" %>>
+    Room
+</option>
 
         <option value="Iconic Cities" <%= listing.category === "Iconic Cities" ? "selected" : "" %>>
             Iconic Cities
@@ -110,6 +110,7 @@
 <style>
     .original-image img {
     width: 300px;
+    max-width: 100%;
     height: 200px;
     object-fit: cover;
     border-radius: 12px;
